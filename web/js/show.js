@@ -5,6 +5,7 @@ var myChart = echarts.init(document.getElementById('main'));
 var btChart = echarts.init(document.getElementById('bt'));
 var zztChart =echarts.init(document.getElementById('zzt'));
 var zxtChart = echarts.init(document.getElementById('rfdqx'));
+var radarChart = echarts.init(document.getElementById('radar'));
 
 var convertData = function (data) {
     var res = [];
@@ -108,8 +109,7 @@ var option = {
 myChart.setOption(option);
 
 myChart.on('click', function (params) {
-    console.log(params.name);
-    for (var i = 0; i < data.length; i++) {
+    for ( i = 0; i < data.length; i++) {
         if(data[i].name == params.name)
         {
             document.getElementById('name').innerHTML = data[i].name;
@@ -218,10 +218,10 @@ myChart.on('click', function (params) {
 
             var datas = data2[data[i].name];
 
-            for (var i = 1; i < 365; i++) {
+            for (var j = 1; j < 365; j++) {
                 var now = new Date(base += oneDay);
                 dates.push([now.getMonth() + 1, now.getDate()].join('/'));
-                datas.push(datas[i - 1]);
+                datas.push(datas[j - 1]);
             }
 
             var option3 = {
@@ -298,6 +298,38 @@ myChart.on('click', function (params) {
                 ]
             };
             zxtChart.setOption(option3);
+
+            var test = data[i].radar;
+
+            var option4 = {
+                tooltip: {},
+                name:{
+                  textStyle:{
+                      color:'#000',
+                      fontSize:14
+                  }
+                },
+                radar: {
+                    // shape: 'circle',
+                    indicator: [
+                        { name: '辐照资源得分', max: 100},
+                        { name: '现有弃光得分', max: 100},
+                        { name: '弃光消纳得分', max: 100},
+                        { name: '工业地价得分', max: 100}
+                    ]
+                },
+                series: [{
+                    type: 'radar',
+                    // areaStyle: {normal: {}},
+                    data : [
+                        {
+                            value : data[i].radar
+                        }
+                    ]
+                }]
+            };
+            radarChart.setOption(option4);
+
         }
     }
 });

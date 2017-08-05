@@ -35,28 +35,50 @@
 
 <body>
 <div style="width: 100%;height: auto">
-    <form class="form-inline">
+    <div class="form-inline">
         <div class="form-group" >
-            <label>装机容量(万W)</label>
-            <input type="text" class="form-control" placeholder="10">
+            <label>装机容量(MW)</label>
+            <input type="text" class="form-control" style="width: 50px" placeholder="10">
         </div>
-        <%--<div class="form-group">--%>
-        <%--<label>光伏板型号</label>--%>
-        <%--<select class="form-control">--%>
-        <%--<option>典型单晶硅组件</option>--%>
-        <%--<option>典型多晶硅组件</option>--%>
-        <%--<option>自定义光伏组件</option>--%>
-        <%--</select>--%>
-        <%--</div>--%>
-        <%--<div class="form-group">--%>
-        <%--<label>追踪方式</label>--%>
-        <%--<select class="form-control">--%>
-        <%--<option>固定式安装</option>--%>
-        <%--<option>斜单轴追踪</option>--%>
-        <%--<option>双轴追踪</option>--%>
-        <%--</select>--%>
-        <%--</div>--%>
-        <a href="/m_f.jsp" >
+        <div class="form-group" >
+            <label>单次推荐量</label>
+            <input type="text" class="form-control" style="width: 50px" placeholder="10">
+        </div>
+        <div class="form-group">
+            <label>光伏板选型</label>
+            <select class="form-control">
+                <option>典型单晶硅组件</option>
+                <option>典型多晶硅组件</option>
+                <option>魄秀JAM6(K)-60-PR-单晶硅</option>
+                <option>GSM275W/60/4BB-单晶硅</option>
+                <option>JAM6(K)-72-PR-单晶硅</option>
+                <option>GSM335W/72/4BB-单晶硅</option>
+                <option>JAM6(K)-72-4BB-多晶硅</option>
+                <option>GSM340W/72/4BB-多晶硅</option>
+                <option>润秀JAP6-60-270/PR-多晶硅</option>
+                <option>自定义光伏组件</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>追踪方式</label>
+            <select class="form-control">
+                <option>固定支架</option>
+                <option>斜单轴追踪</option>
+                <option>斜双轴追踪</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>弃光因素重视程度</label>
+            <select class="form-control">
+                <option>正常考虑弃光因素</option>
+                <option>非常重视弃光因素</option>
+                <option>不重视弃光因素</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info" type="submit">生成决策参考</button>
+        </div>
+        <%--<a href="/m_f.jsp" >
             <button type="button" class="btn btn-default">单晶硅固定式</button>
         </a>
         <a href="/m_o.jsp" >
@@ -73,11 +95,52 @@
         </a>
         <a href="/s_d.jsp" >
             <button type="button" class="btn btn-default">多晶硅双轴</button>
-        </a>
+        </a>--%>
 
-    </form>
+    </div>
 </div>
-<script src="js/m_d.js"></script>
+<div class="row">
+    <div class="col-md-7">
+        <div id="main" style="height: 650px" >
+            <div style="position: relative; overflow: hidden; width: 300px; height: 600px;">
+                <div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 445px; height: 600px; user-select: none;"></div>
+                <canvas width="300" height="600" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 445px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                <canvas width="300" height="600" data-zr-dom-id="10" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 445px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                <canvas width="300" height="600" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 445px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+            </div>
+        </div>
+        <div id="radar" style="height: 350px"></div>
+    </div>
+    <div id = "next" class="col-md-5">
+        <div id = "name" style="height: 40px;color:#fc5185"></div>
+        <table style="height: 30%;width: 100%">
+            <tr>基本信息</tr>
+            <tr><td>省份</td><td id = "province"></td></tr>
+            <tr><td>海拔</td><td id = "altitude"></td></tr>
+            <tr><td>电价</td><td id = "elePrice"></td></tr>
+            <tr><td>维度</td><td id = "latitude"></td></tr>
+            <tr><td>经度</td><td id = "longitude"></td></tr>
+            <tr><td>资源类型区</td><td id = "type"></td></tr>
+        </table>
+        <div>
+            辐照资源高于全国<div style="display: inline" id = "fz"></div>%的区域<br>
+            工业地价低于全国<div style="display: inline" id = "dj"></div>%的区域<br>
+            弃光率在<div style="display: inline" id = "qgl"></div>%<br>
+            年发电收益：<div style="display: inline" id = "fd"></div><br>
+            <div id = "rfdqx" style="width: 100%; height: 300px">
+
+            </div>
+            波动率高于全国<div style="display: inline" id = "bdl"></div>%的区域
+        </div>
+        <div>
+            <div>建站成本分析<br>
+                总建站成本：<div style="display: inline" id = "cb"> </div>万元</div>
+            <div id ="bt" style="width: 50%; height: 300px; float: left"></div>
+            <div id = "zzt" style="width: 50%; height: 300px;float: left"></div>
+        </div>
+    </div>
+</div>
+<script src="js/testData.js"></script>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
 </body>
