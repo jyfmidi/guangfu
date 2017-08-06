@@ -85,11 +85,8 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdowanMenu1">
                 <li onclick="addList()"><button class="btn btn-default" onclick="addList()" type="submit">加入比较列表</button></li>
-
                 <li onclick="cart.clear()"><button class="btn btn-default" onclick="cart.clear()" type="submit">清空比较列表</button></li>
-
                 <li onclick="toCompare()"><button class="btn btn-default" id = "normalButton" style="display: block" onclick="toCompare()" type="submit">对比展示</button></li>
-
                 <li onclick="toNormal()"><button class="btn btn-default" id="compareButton" style="display: none;" onclick="toNormal()" type="submit">  返回  </button></li>
             </ul>
         </div>
