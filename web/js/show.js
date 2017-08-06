@@ -112,6 +112,7 @@ myChart.on('click', function (params) {
     for ( i = 0; i < data.length; i++) {
         if(data[i].name == params.name)
         {
+            tempData = data[i];
             document.getElementById('name').innerHTML = data[i].name;
             document.getElementById('province').innerHTML = data[i].province;
             document.getElementById('altitude').innerHTML = data[i].altitude.toString();
