@@ -216,6 +216,6 @@
 <script src="js/testData.js"></script>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
-<script src="js/compare.js"></script>
+<%--<script src="js/compare.js"></script>--%>
 </body>
 </html>
