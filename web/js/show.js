@@ -108,6 +108,8 @@ var option = {
 
 myChart.setOption(option);
 
+var tempData = null;
+
 myChart.on('click', function (params) {
     for ( i = 0; i < data.length; i++) {
         if(data[i].name == params.name)
