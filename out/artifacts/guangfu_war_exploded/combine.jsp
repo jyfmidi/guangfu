@@ -18,6 +18,7 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="icon" href="/image/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/echarts.min.js"></script>
     <script src="js/china.js"></script>
@@ -76,7 +77,18 @@
             </select>
         </div>
         <div class="form-group">
-            <button class="btn btn-info" type="submit">生成决策参考</button>
+            <button class="btn btn-info" type="submit">分析</button>
+        </div>
+        <div class="dropdown form-group">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                比较
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdowanMenu1">
+                <li onclick="addList()"><button class="btn btn-default" onclick="addList()" type="submit">加入比较列表</button></li>
+                <li onclick="cart.clear()"><button class="btn btn-default" onclick="cart.clear()" type="submit">清空比较列表</button></li>
+                <li onclick="toCompare()"><button class="btn btn-default" id = "normalButton" style="display: block" onclick="toCompare()" type="submit">对比展示</button></li>
+                <li onclick="toNormal()"><button class="btn btn-default" id="compareButton" style="display: none;" onclick="toNormal()" type="submit">  返回  </button></li>
+            </ul>
         </div>
         <%--<a href="/m_f.jsp" >
             <button type="button" class="btn btn-default">单晶硅固定式</button>
@@ -99,7 +111,7 @@
 
     </div>
 </div>
-<div class="row">
+<div id="normal" class="row" style="display: block">
     <div class="col-md-7">
         <div id="main" style="height: 650px" >
             <div style="position: relative; overflow: hidden; width: 300px; height: 600px;">
@@ -123,25 +135,90 @@
             <tr><td>资源类型区</td><td id = "type"></td></tr>
         </table>
         <div>
-            辐照资源高于全国<div style="display: inline" id = "fz"></div>%的区域<br>
-            工业地价低于全国<div style="display: inline" id = "dj"></div>%的区域<br>
-            弃光率在<div style="display: inline" id = "qgl"></div>%<br>
-            年发电收益：<div style="display: inline" id = "fd"></div><br>
+            <div style="display: inline" id = "fz"></div><br>
+            <div style="display: inline" id = "dj"></div><br>
+            <div style="display: inline" id = "qgl"></div><br>
+            <div style="display: inline" id = "gdp"></div><br>
             <div id = "rfdqx" style="width: 100%; height: 300px">
 
             </div>
-            波动率高于全国<div style="display: inline" id = "bdl"></div>%的区域
+            <div style="display: inline" id = "fd"></div>
+            <div style="display: inline" id = "bdl"></div>
         </div>
         <div>
-            <div>建站成本分析<br>
-                总建站成本：<div style="display: inline" id = "cb"> </div>万元</div>
-            <div id ="bt" style="width: 50%; height: 300px; float: left"></div>
-            <div id = "zzt" style="width: 50%; height: 300px;float: left"></div>
+            <div style="display: inline" id = "cb"> </div>
         </div>
+        <div id ="bt" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx"> </div>
+    </div>
+</div>
+
+<div id="compare" class="row" style="display: none">
+    <div class="col-md-6">
+        <div id = "name1" style="height: 40px;color:#fc5185"></div>
+        <table style="height: 30%;width: 100%">
+            <tr>基本信息</tr>
+            <tr><td>省份</td><td id = "province1"></td></tr>
+            <tr><td>海拔</td><td id = "altitude1"></td></tr>
+            <tr><td>电价</td><td id = "elePrice1"></td></tr>
+            <tr><td>维度</td><td id = "latitude1"></td></tr>
+            <tr><td>经度</td><td id = "longitude1"></td></tr>
+            <tr><td>资源类型区</td><td id = "type1"></td></tr>
+        </table>
+        <div id="radar1" style="height: 350px"></div>
+        <div>
+            <div style="display: inline" id = "fz1"></div><br>
+            <div style="display: inline" id = "dj1"></div><br>
+            <div style="display: inline" id = "qgl1"></div><br>
+            <div style="display: inline" id = "gdp1"></div><br>
+            <div id = "rfdqx1" style="width: 100%; height: 300px">
+
+            </div>
+            <div style="display: inline" id = "fd1"></div>
+            <div style="display: inline" id = "bdl1"></div>
+        </div>
+        <div>
+            <div style="display: inline" id = "cb1"> </div>
+        </div>
+        <div id ="bt1" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt1" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx1"> </div>
+    </div>
+    <div class="col-md-6">
+        <div id = "name2" style="height: 40px;color:#fc5185"></div>
+        <table style="height: 30%;width: 100%">
+            <tr>基本信息</tr>
+            <tr><td>省份</td><td id = "province2"></td></tr>
+            <tr><td>海拔</td><td id = "altitude2"></td></tr>
+            <tr><td>电价</td><td id = "elePrice2"></td></tr>
+            <tr><td>维度</td><td id = "latitude2"></td></tr>
+            <tr><td>经度</td><td id = "longitude2"></td></tr>
+            <tr><td>资源类型区</td><td id = "type2"></td></tr>
+        </table>
+        <div id="radar2" style="height: 350px"></div>
+        <div>
+            <div style="display: inline" id = "fz2"></div><br>
+            <div style="display: inline" id = "dj2"></div><br>
+            <div style="display: inline" id = "qgl2"></div><br>
+            <div style="display: inline" id = "gdp2"></div><br>
+            <div id = "rfdqx2" style="width: 100%; height: 300px">
+
+            </div>
+            <div style="display: inline" id = "fd2"></div>
+            <div style="display: inline" id = "bdl2"></div>
+        </div>
+        <div>
+            <div style="display: inline" id = "cb2"> </div>
+        </div>
+        <div id ="bt2" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt2" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx2"> </div>
     </div>
 </div>
 <script src="js/testData.js"></script>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
+<%--<script src="js/compare.js"></script>--%>
 </body>
 </html>
