@@ -89,10 +89,10 @@ public class City {
     }
 
     public String json() {
-        String json = "{name:'" + this.city + "'," +
+        String json = "{name:\'" + this.city + "\'," +
                 "altitude:" + this.basic_info_altitude + "," +
                 "elePrice:" + this.basic_info_elec_price + "," +
-                "province:'" + this.basic_info_province + "'," +
+                "province:\'" + this.basic_info_province + "\'," +
                 "latitude:" + this.X + "," +
                 "longitude:" + this.Y + "," +
                 "type:" + this.basic_info_resource_type + "," +

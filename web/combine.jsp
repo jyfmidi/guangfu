@@ -39,11 +39,11 @@
     <div class="form-inline">
         <div class="form-group" >
             <label>装机容量(MW)</label>
-            <input id="zjrl" type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="zjrl" type="text" class="form-control" style="width: 50px" value="10">
         </div>
         <div class="form-group" >
             <label>单次推荐量</label>
-            <input id="dctjl" type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="dctjl" type="text" class="form-control" style="width: 50px" value="10">
         </div>
         <div class="form-group">
             <label>光伏板选型</label>

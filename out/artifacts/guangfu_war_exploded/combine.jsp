@@ -39,15 +39,15 @@
     <div class="form-inline">
         <div class="form-group" >
             <label>装机容量(MW)</label>
-            <input type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="zjrl" type="text" class="form-control" style="width: 50px" placeholder="10">
         </div>
         <div class="form-group" >
             <label>单次推荐量</label>
-            <input type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="dctjl" type="text" class="form-control" style="width: 50px" placeholder="10">
         </div>
         <div class="form-group">
             <label>光伏板选型</label>
-            <select class="form-control">
+            <select id="gfbxx" class="form-control">
                 <option>典型单晶硅组件</option>
                 <option>典型多晶硅组件</option>
                 <option>魄秀JAM6(K)-60-PR-单晶硅</option>
@@ -62,7 +62,7 @@
         </div>
         <div class="form-group">
             <label>追踪方式</label>
-            <select class="form-control">
+            <select id="zzfs" class="form-control">
                 <option>固定支架</option>
                 <option>斜单轴追踪</option>
                 <option>斜双轴追踪</option>
@@ -70,14 +70,14 @@
         </div>
         <div class="form-group">
             <label>弃光因素重视程度</label>
-            <select class="form-control">
+            <select id="qgys" class="form-control">
                 <option>正常考虑弃光因素</option>
                 <option>非常重视弃光因素</option>
                 <option>不重视弃光因素</option>
             </select>
         </div>
         <div class="form-group">
-            <button class="btn btn-info" type="submit">分析</button>
+            <button class="btn btn-info" type="submit" onclick="submit()">分析</button>
         </div>
         <div class="dropdown form-group">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,7 +126,7 @@
     <div id = "next" class="col-md-5">
         <div id = "name" style="height: 40px;color:#fc5185"></div>
         <table style="height: 30%;width: 100%">
-            <tr>基本信息</tr>
+            <tr><td>基本信息</td><td> <button class="btn btn-info" type="submit" onclick="nearCity()">附近城市</button></td></tr>
             <tr><td>省份</td><td id = "province"></td></tr>
             <tr><td>海拔</td><td id = "altitude"></td></tr>
             <tr><td>电价</td><td id = "elePrice"></td></tr>
@@ -216,9 +216,70 @@
         <div style="display: inline" id = "hsqx2"> </div>
     </div>
 </div>
-<script src="js/testData.js"></script>
+<%--<script src="js/testData.js"></script>--%>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
-<%--<script src="js/compare.js"></script>--%>
+<script src="js/compare.js"></script>
+<script type="text/javascript">
+    servlet = "/parseDataServlet?";
+    var data = null;
+    function submit() {
+        var zjrl = $("#zjrl").val();
+        var dctjl = $("#dctjl").val();
+        var gfbxx =$("#gfbxx").get(0).selectedIndex;
+        var zzfs = $("#zzfs").get(0).selectedIndex;
+        var qgys = $("#qgys").get(0).selectedIndex;
+        var url = servlet+"zjrl="+zjrl+"&dctjl="+dctjl+"&gfbxx="+gfbxx+"&zzfs="+zzfs+"&qgys="+qgys;
+        $.ajax(
+            {type : "get",
+                url :url,
+                dataType:"json",
+                success:function (msg) {
+                    data = msg;
+                    /*
+                     *  I'm not sure this'll work
+                     *  when use dataType text
+                     *  code：
+                     *  data = $.parseJSON(msg);
+                     */
+                    showMap();
+                },
+                error:function (respons) {
+                    alert("操作异常")
+                }
+            }
+        )
+    }
+
+    //this function is extraordinary similar to the function above, and this is not a good design
+    function nearCity() {
+        var zjrl = $("#zjrl").val();
+        var dctjl = $("#dctjl").val();
+        var gfbxx =$("#gfbxx").get(0).selectedIndex;
+        var zzfs = $("#zzfs").get(0).selectedIndex;
+        var qgys = $("#qgys").get(0).selectedIndex;
+        var name = $("#name").val();
+        var url = servlet+"zjrl="+zjrl+"&dctjl="+dctjl+"&gfbxx="+gfbxx+"&zzfs="+zzfs+"&qgys="+qgys+"&name="+name;
+        $.ajax(
+            {type : "get",
+                url :url,
+                dataType:"json",
+                success:function (msg) {
+                    data = msg;
+                    /*
+                     *  I'm not sure this'll work
+                     *  when use dataType text
+                     *  code：
+                     *  data = $.parseJSON(msg);
+                     */
+                    showMap();
+                },
+                error:function (respons) {
+                    alert("操作异常")
+                }
+            }
+        )
+    }
+</script>
 </body>
 </html>
