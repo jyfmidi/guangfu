@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="poi-3.8-20120326">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../读取xls、xlsx文件所需jar包/poi-3.8-20120326.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

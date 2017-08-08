@@ -7,7 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ page import="model.City" %>
+<%
+    City city = (City)request.getAttribute("city");
+    String n1 = (String)request.getAttribute("n1");
+    String n2 = (String)request.getAttribute("n2");
+    String value = "no city";
+    if(city != null) {
+       value = city.city;
+    }
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -28,7 +37,9 @@
         第二个数字：
         <input type="text" name="n2" /><br/>
         返回1
-        <input type="text" value="<%=request.getAttribute("n")%>"/>
+        <input type="text" value="<%=n1%>"/>
+        <input type="text" value="<%=n2%>"/>
+        <input type="text" value="<%=value%>"/>
         <input type="submit" value="提交">
     </form>
   </body>

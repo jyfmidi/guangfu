@@ -42,5 +42,14 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.16" level="application_server_libraries" />
     <orderEntry type="library" name="jython-standalone-2.7.0" level="project" />
     <orderEntry type="library" name="jsp-api" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-5.1.43-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

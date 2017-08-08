@@ -135,21 +135,22 @@
             <tr><td>资源类型区</td><td id = "type"></td></tr>
         </table>
         <div>
-            辐照资源高于全国<div style="display: inline" id = "fz"></div>%的区域<br>
-            工业地价低于全国<div style="display: inline" id = "dj"></div>%的区域<br>
-            弃光率在<div style="display: inline" id = "qgl"></div>%<br>
-            年发电收益：<div style="display: inline" id = "fd"></div><br>
+            <div style="display: inline" id = "fz"></div><br>
+            <div style="display: inline" id = "dj"></div><br>
+            <div style="display: inline" id = "qgl"></div><br>
+            <div style="display: inline" id = "gdp"></div><br>
             <div id = "rfdqx" style="width: 100%; height: 300px">
 
             </div>
-            波动率高于全国<div style="display: inline" id = "bdl"></div>%的区域
+            <div style="display: inline" id = "fd"></div>
+            <div style="display: inline" id = "bdl"></div>
         </div>
         <div>
-            <div>建站成本分析<br>
-                总建站成本：<div style="display: inline" id = "cb"> </div>万元</div>
-            <div id ="bt" style="width: 50%; height: 300px; float: left"></div>
-            <div id = "zzt" style="width: 50%; height: 300px;float: left"></div>
+            <div style="display: inline" id = "cb"> </div>
         </div>
+        <div id ="bt" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx"> </div>
     </div>
 </div>
 
@@ -167,21 +168,22 @@
         </table>
         <div id="radar1" style="height: 350px"></div>
         <div>
-            辐照资源高于全国<div style="display: inline" id = "fz1"></div>%的区域<br>
-            工业地价低于全国<div style="display: inline" id = "dj1"></div>%的区域<br>
-            弃光率在<div style="display: inline" id = "qgl1"></div>%<br>
-            年发电收益：<div style="display: inline" id = "fd1"></div><br>
+            <div style="display: inline" id = "fz1"></div><br>
+            <div style="display: inline" id = "dj1"></div><br>
+            <div style="display: inline" id = "qgl1"></div><br>
+            <div style="display: inline" id = "gdp1"></div><br>
             <div id = "rfdqx1" style="width: 100%; height: 300px">
 
             </div>
-            波动率高于全国<div style="display: inline" id = "bdl1"></div>%的区域
+            <div style="display: inline" id = "fd1"></div>
+            <div style="display: inline" id = "bdl1"></div>
         </div>
         <div>
-            <div>建站成本分析<br>
-                总建站成本：<div style="display: inline" id = "cb1"> </div>万元</div>
-            <div id ="bt1" style="width: 50%; height: 300px; float: left"></div>
-            <div id = "zzt1" style="width: 50%; height: 300px;float: left"></div>
+            <div style="display: inline" id = "cb1"> </div>
         </div>
+        <div id ="bt1" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt1" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx1"> </div>
     </div>
     <div class="col-md-6">
         <div id = "name2" style="height: 40px;color:#fc5185"></div>
@@ -196,21 +198,22 @@
         </table>
         <div id="radar2" style="height: 350px"></div>
         <div>
-            辐照资源高于全国<div style="display: inline" id = "fz2"></div>%的区域<br>
-            工业地价低于全国<div style="display: inline" id = "dj2"></div>%的区域<br>
-            弃光率在<div style="display: inline" id = "qgl2"></div>%<br>
-            年发电收益：<div style="display: inline" id = "fd2"></div><br>
+            <div style="display: inline" id = "fz2"></div><br>
+            <div style="display: inline" id = "dj2"></div><br>
+            <div style="display: inline" id = "qgl2"></div><br>
+            <div style="display: inline" id = "gdp2"></div><br>
             <div id = "rfdqx2" style="width: 100%; height: 300px">
 
             </div>
-            波动率高于全国<div style="display: inline" id = "bdl2"></div>%的区域
+            <div style="display: inline" id = "fd2"></div>
+            <div style="display: inline" id = "bdl2"></div>
         </div>
         <div>
-            <div>建站成本分析<br>
-                总建站成本：<div style="display: inline" id = "cb2"> </div>万元</div>
-            <div id ="bt2" style="width: 50%; height: 300px; float: left"></div>
-            <div id = "zzt2" style="width: 50%; height: 300px;float: left"></div>
+            <div style="display: inline" id = "cb2"> </div>
         </div>
+        <div id ="bt2" style="width: 50%; height: 300px; float: left"></div>
+        <div id = "zzt2" style="width: 50%; height: 300px;float: left"></div>
+        <div style="display: inline" id = "hsqx2"> </div>
     </div>
 </div>
 <script src="js/testData.js"></script>
