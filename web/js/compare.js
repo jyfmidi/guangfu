@@ -69,12 +69,14 @@ function showLeft() {
         document.getElementById('latitude1').innerHTML = cart.left.latitude.toString();
         document.getElementById('longitude1').innerHTML = cart.left.longitude.toString();
         document.getElementById('type1').innerHTML = cart.left.type.toString();
-        document.getElementById('fz1').innerHTML = (cart.left.fz*100).toFixed(2).toString();
-        document.getElementById('dj1').innerHTML = (cart.left.dj*100).toFixed(2).toString();
-        document.getElementById('qgl1').innerHTML = (cart.left.qgl*100).toFixed(2).toString();
-        document.getElementById('fd1').innerHTML = cart.left.fd.toFixed(2).toString();
-        document.getElementById('bdl1').innerHTML = (cart.left.bdl*100).toFixed(2).toString();
-        document.getElementById('cb1').innerHTML = cart.left.cb.toFixed(2).toString();
+        document.getElementById('fz1').innerHTML = "·".concat(cart.left.fz.toString());
+        document.getElementById('dj1').innerHTML = "·".concat(cart.left.dj.toString());
+        document.getElementById('qgl1').innerHTML ="·".concat(cart.left.qgl.toString());
+        document.getElementById('fd1').innerHTML = "·".concat(cart.left.fd.toString());
+        document.getElementById('bdl1').innerHTML = "·".concat(cart.left.bdl.toString());
+        document.getElementById('cb1').innerHTML = "·".concat(cart.left.cb.toString());
+        document.getElementById('gdp1').innerHTML = "·".concat(cart.left.gdp.toString());
+        document.getElementById('hsqx1').innerHTML = "·".concat(cart.left.hsqx.toString());
         var option1 = {
             title: {
                 text: '建站成本构成',
@@ -297,12 +299,14 @@ function showRight() {
         document.getElementById('latitude2').innerHTML = cart.right.latitude.toString();
         document.getElementById('longitude2').innerHTML = cart.right.longitude.toString();
         document.getElementById('type2').innerHTML = cart.right.type.toString();
-        document.getElementById('fz2').innerHTML = (cart.right.fz*100).toFixed(2).toString();
-        document.getElementById('dj2').innerHTML = (cart.right.dj*100).toFixed(2).toString();
-        document.getElementById('qgl2').innerHTML = (cart.right.qgl*100).toFixed(2).toString();
-        document.getElementById('fd2').innerHTML = cart.right.fd.toFixed(2).toString();
-        document.getElementById('bdl2').innerHTML = (cart.right.bdl*100).toFixed(2).toString();
-        document.getElementById('cb2').innerHTML = cart.right.cb.toFixed(2).toString();
+        document.getElementById('fz2').innerHTML = "·".concat(cart.right.fz.toString());
+        document.getElementById('dj2').innerHTML = "·".concat(cart.right.dj.toString());
+        document.getElementById('qgl2').innerHTML ="·".concat(cart.right.qgl.toString());
+        document.getElementById('fd2').innerHTML = "·".concat(cart.right.fd.toString());
+        document.getElementById('bdl2').innerHTML = "·".concat(cart.right.bdl.toString());
+        document.getElementById('cb2').innerHTML = "·".concat(cart.right.cb.toString());
+        document.getElementById('gdp2').innerHTML = "·".concat(cart.right.gdp.toString());
+        document.getElementById('hsqx2').innerHTML = "·".concat(cart.right.hsqx.toString());
         var option1 = {
             title: {
                 text: '建站成本构成',
