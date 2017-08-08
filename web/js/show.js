@@ -122,12 +122,14 @@ myChart.on('click', function (params) {
             document.getElementById('latitude').innerHTML = data[i].latitude.toString();
             document.getElementById('longitude').innerHTML = data[i].longitude.toString();
             document.getElementById('type').innerHTML = data[i].type.toString();
-            document.getElementById('fz').innerHTML = (data[i].fz*100).toFixed(2).toString();
-            document.getElementById('dj').innerHTML = (data[i].dj*100).toFixed(2).toString();
-            document.getElementById('qgl').innerHTML = (data[i].qgl*100).toFixed(2).toString();
-            document.getElementById('fd').innerHTML = data[i].fd.toFixed(2).toString();
-            document.getElementById('bdl').innerHTML = (data[i].bdl*100).toFixed(2).toString();
-            document.getElementById('cb').innerHTML = data[i].cb.toFixed(2).toString();
+            document.getElementById('fz').innerHTML = "·".concat(data[i].fz.toString());
+            document.getElementById('dj').innerHTML = "·".concat(data[i].dj.toString());
+            document.getElementById('qgl').innerHTML ="·".concat(data[i].qgl.toString());
+            document.getElementById('fd').innerHTML = "·".concat(data[i].fd.toString());
+            document.getElementById('bdl').innerHTML = "·".concat(data[i].bdl.toString());
+            document.getElementById('cb').innerHTML = "·".concat(data[i].cb.toString());
+            document.getElementById('gdp').innerHTML = "·".concat(data[i].gdp.toString());
+            document.getElementById('hsqx').innerHTML = "·".concat(data[i].hsqx.toString());
             var option1 = {
                 title: {
                     text: '建站成本构成',
