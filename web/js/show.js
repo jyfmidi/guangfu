@@ -21,97 +21,99 @@ var convertData = function (data) {
     return res;
 };
 
-var option = {
-    title: {
-        text: '该条件下推荐排名靠前的城市',
-        left: 'center'
-    },
-    // tooltip : {
-    //     trigger: 'item'
-    // },
-    legend: {
-        orient: 'vertical',
-        y: 'bottom',
-        x:'right',
-        data:['city'],
-        textStyle: {
-            color: '#fff'
-        }
-    },
-    geo: {
-        map: 'china',
-        label: {
-            emphasis: {
-                show: false
+function showMap() {
+    var option = {
+        title: {
+            text: '该条件下推荐排名靠前的城市',
+            left: 'center'
+        },
+        // tooltip : {
+        //     trigger: 'item'
+        // },
+        legend: {
+            orient: 'vertical',
+            y: 'bottom',
+            x:'right',
+            data:['city'],
+            textStyle: {
+                color: '#fff'
             }
         },
-        roam: true,
-        itemStyle: {
-            normal: {
-                areaColor: '#364f6b',
-                borderColor: '#fff'
-            },
-            emphasis: {
-                areaColor: '#2a333d'
-            }
-        }
-    },
-    series : [
-        {
-            name: 'city',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            data: convertData(data),
-            symbolSize: 10,
+        geo: {
+            map: 'china',
             label: {
-                normal: {
-                    formatter: '{b}',
-                    position: 'right',
-                    show: true
+                emphasis: {
+                    show: false
                 }
             },
+            roam: true,
             itemStyle: {
                 normal: {
-                    color: '#ddb926'
+                    areaColor: '#364f6b',
+                    borderColor: '#fff'
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
                 }
             }
-        }//,
-        // {
-        //     name: 'Top 10',
-        //     type: 'effectScatter',
-        //     coordinateSystem: 'geo',
-        //     data:convertData(data),
-        //     symbolSize: 10,
-        //     showEffectOn: 'render',
-        //     rippleEffect: {
-        //         brushType: 'stroke'
-        //     },
-        //     hoverAnimation: true,
-        //     label: {
-        //         normal: {
-        //             formatter: '{b}',
-        //             position: 'right',
-        //             show: true
-        //         }
-        //     },
-        //     itemStyle: {
-        //         normal: {
-        //             color: '#f4e925',
-        //             shadowBlur: 10,
-        //             shadowColor: '#333'
-        //         }
-        //     },
-        //     zlevel: 1
-        // }
-    ]
-};
+        },
+        series : [
+            {
+                name: 'city',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: convertData(data),
+                symbolSize: 10,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#ddb926'
+                    }
+                }
+            }//,
+            // {
+            //     name: 'Top 10',
+            //     type: 'effectScatter',
+            //     coordinateSystem: 'geo',
+            //     data:convertData(data),
+            //     symbolSize: 10,
+            //     showEffectOn: 'render',
+            //     rippleEffect: {
+            //         brushType: 'stroke'
+            //     },
+            //     hoverAnimation: true,
+            //     label: {
+            //         normal: {
+            //             formatter: '{b}',
+            //             position: 'right',
+            //             show: true
+            //         }
+            //     },
+            //     itemStyle: {
+            //         normal: {
+            //             color: '#f4e925',
+            //             shadowBlur: 10,
+            //             shadowColor: '#333'
+            //         }
+            //     },
+            //     zlevel: 1
+            // }
+        ]
+    };
 
-myChart.setOption(option);
+    myChart.setOption(option);
+}
 
 var tempData = null;
 
 myChart.on('click', function (params) {
-    for ( i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         if(data[i].name == params.name)
         {
             tempData = data[i];
