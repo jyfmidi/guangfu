@@ -217,6 +217,9 @@
     </div>
 </div>
 <%--<script src="js/testData.js"></script>--%>
+<script type="text/javascript">
+    var tempName = "上海";
+</script>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
 <script src="js/compare.js"></script>
@@ -258,7 +261,7 @@
         var gfbxx =$("#gfbxx").get(0).selectedIndex;
         var zzfs = $("#zzfs").get(0).selectedIndex;
         var qgys = $("#qgys").get(0).selectedIndex;
-        var name = $("#name").val();
+        var name = $("#name").text();
         var url = servlet+"zjrl="+zjrl+"&dctjl="+dctjl+"&gfbxx="+gfbxx+"&zzfs="+zzfs+"&qgys="+qgys+"&name="+name;
         $.ajax(
             {type : "get",

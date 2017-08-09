@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="guangfu">
+    <output-path>$PROJECT_DIR$/out/artifacts/guangfu</output-path>
+    <root id="archive" name="guangfu.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
+    </root>
+  </artifact>
+</component>

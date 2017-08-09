@@ -111,12 +111,12 @@ function showMap() {
 }
 
 var tempData = null;
-
 myChart.on('click', function (params) {
     for (var i = 0; i < data.length; i++) {
         if(data[i].name == params.name)
         {
             tempData = data[i];
+            tempName = data[i].name;
             document.getElementById('name').innerHTML = data[i].name;
             document.getElementById('province').innerHTML = data[i].province;
             document.getElementById('altitude').innerHTML = data[i].altitude.toString();

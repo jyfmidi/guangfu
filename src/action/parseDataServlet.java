@@ -29,11 +29,10 @@ public class parseDataServlet extends HttpServlet {
         String tableId = gfbxx + zzfs + qgys;
         int number = Integer.parseInt(dctjl);
         try {
-            if (name == null) {
+            if(name == null) {
                 data = utility.utility.getNCityJson(tableId, number);
-
             } else {
-                data = utility.utility.getNearCityJson(tableId, name);
+                data =utility.utility.getNearCityJson(tableId,name);
             }
             response.setContentType("text/html;charset=gb2312");
             PrintWriter out = response.getWriter();

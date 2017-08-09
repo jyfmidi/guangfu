@@ -9,6 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$USER_HOME$/Downloads/jython-standalone-2.7.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.43-bin.jar" />
+          <element id="library" level="project" name="jython-standalone-2.7.0" />
         </element>
       </element>
     </root>

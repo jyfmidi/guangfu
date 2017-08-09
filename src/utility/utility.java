@@ -3,6 +3,8 @@ package utility;
 import model.City;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class utility {
     public static String database = "guangfu";
@@ -71,10 +73,8 @@ public class utility {
     }
 
     public static String getNearCityJson(String tableId, String name) throws SQLException {
-        Connection connection = getConnection();
         try {
             String cityList = "[";
-            Statement statement = connection.createStatement();
             City city = getCityByName(tableId, name);
             String[] near = city.near;
             for (int i = 0; i < near.length; i++) {
@@ -82,7 +82,6 @@ public class utility {
                 cityList += temp.json()+",";
             }
             cityList = cityList.substring(0, cityList.length() - 1) + "]";
-            connection.close();
             return cityList;
         } catch (SQLException e) {
             e.printStackTrace();

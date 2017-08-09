@@ -89,31 +89,31 @@ public class City {
     }
 
     public String json() {
-        String json = "{name:\'" + this.city + "\'," +
-                "altitude:" + this.basic_info_altitude + "," +
-                "elePrice:" + this.basic_info_elec_price + "," +
-                "province:\'" + this.basic_info_province + "\'," +
-                "latitude:" + this.X + "," +
-                "longitude:" + this.Y + "," +
-                "type:" + this.basic_info_resource_type + "," +
-                "fz:\"" + this.x_info + "\"," +
-                "dj:\"" + this.y_info + "\"," +
-                "qgl:\"" + this.z_info + "\"," +
-                "gdp:\"" + this.gc_info + "\"," +
-                "fd:\"" + this.benefit_info + "\"," +
-                "bdl:\"" + this.fluc_info + "\"," +
-                "cb:\"" + this.cost_info + "\"," +
-                "hsqx:\"" + this.payback_info + "\"," +
-                "zj:" + this.cost_modules + "," +
-                "sg:" + this.cost_construction + "," +
-                "td:" + this.cost_land + "," +
-                "singlegd:" + this.payback_period_s_f + "," +
-                "singlexdz:" + this.payback_period_s_o + "," +
-                "singlesz:" + this.payback_period_s_d + "," +
-                "multigd:" + this.payback_period_m_f + "," +
-                "multixdz:" + this.payback_period_m_o + "," +
-                "multisz:" + this.payback_period_s_d + "," +
-                "radar:[" + this.radar_sunshine + "," + this.radar_land_price + "," + this.radar_abandon + "," + radar_GDP + "]}";
+        String json = "{\"name\":\"" + this.city + "\"," +
+                "\"altitude\":" + this.basic_info_altitude + "," +
+                "\"elePrice\":" + this.basic_info_elec_price + "," +
+                "\"province\":\"" + this.basic_info_province + "\"," +
+                "\"latitude\":" + this.X + "," +
+                "\"longitude\":" + this.Y + "," +
+                "\"type\":" + this.basic_info_resource_type + "," +
+                "\"fz\":\"" + this.x_info + "\"," +
+                "\"dj\":\"" + this.y_info + "\"," +
+                "\"qgl\":\"" + this.z_info + "\"," +
+                "\"gdp\":\"" + this.gc_info + "\"," +
+                "\"fd\":\"" + this.benefit_info + "\"," +
+                "\"bdl\":\"" + this.fluc_info + "\"," +
+                "\"cb\":\"" + this.cost_info + "\"," +
+                "\"hsqx\":\"" + this.payback_info + "\"," +
+                "\"zj\":" + this.cost_modules + "," +
+                "\"sg\":" + this.cost_construction + "," +
+                "\"td\":" + this.cost_land + "," +
+                "\"singlegd\":" + this.payback_period_s_f + "," +
+                "\"singlexdz\":" + this.payback_period_s_o + "," +
+                "\"singlesz\":" + this.payback_period_s_d + "," +
+                "\"multigd\":" + this.payback_period_m_f + "," +
+                "\"multixdz\":" + this.payback_period_m_o + "," +
+                "\"multisz\":" + this.payback_period_s_d + "," +
+                "\"radar\":[" + this.radar_sunshine + "," + this.radar_land_price + "," + this.radar_abandon + "," + radar_GDP + "]}";
         return json;
     }
 }

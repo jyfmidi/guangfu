@@ -39,11 +39,11 @@
     <div class="form-inline">
         <div class="form-group" >
             <label>装机容量(MW)</label>
-            <input id="zjrl" type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="zjrl" type="text" class="form-control" style="width: 50px" value="10">
         </div>
         <div class="form-group" >
             <label>单次推荐量</label>
-            <input id="dctjl" type="text" class="form-control" style="width: 50px" placeholder="10">
+            <input id="dctjl" type="text" class="form-control" style="width: 50px" value="10">
         </div>
         <div class="form-group">
             <label>光伏板选型</label>
@@ -217,6 +217,9 @@
     </div>
 </div>
 <%--<script src="js/testData.js"></script>--%>
+<script type="text/javascript">
+    var tempName = "上海";
+</script>
 <script src="js/data.js"></script>
 <script src="js/show.js"></script>
 <script src="js/compare.js"></script>
@@ -258,7 +261,7 @@
         var gfbxx =$("#gfbxx").get(0).selectedIndex;
         var zzfs = $("#zzfs").get(0).selectedIndex;
         var qgys = $("#qgys").get(0).selectedIndex;
-        var name = $("#name").val();
+        var name = $("#name").text();
         var url = servlet+"zjrl="+zjrl+"&dctjl="+dctjl+"&gfbxx="+gfbxx+"&zzfs="+zzfs+"&qgys="+qgys+"&name="+name;
         $.ajax(
             {type : "get",
