@@ -1,18 +1,19 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="guangfu:war exploded">
+  <artifact type="war" name="guangfu:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/guangfu_war_exploded</output-path>
-    <root id="root">
+    <root id="archive" name="guangfu_war exploded.war">
       <element id="javaee-facet-resources" facet="guangfu/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="guangfu" />
+          <element id="dir-copy" path="$PROJECT_DIR$/web" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$USER_HOME$/Downloads/jython-standalone-2.7.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.43-bin.jar" />
           <element id="library" level="project" name="jython-standalone-2.7.0" />
         </element>
       </element>
+      <element id="library" level="project" name="mysql-connector-java-5.1.43-bin" />
     </root>
   </artifact>
 </component>
